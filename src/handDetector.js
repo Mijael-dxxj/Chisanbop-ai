@@ -1,7 +1,8 @@
 import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
 
-const WASM = 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/wasm';
-const MODEL = 'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task';
+// Estos recursos se sirven desde public/ para que el modelo nunca dependa de red.
+const WASM = '/mediapipe/wasm';
+const MODEL = '/models/hand_landmarker.task';
 
 export async function createHandDetector() {
   const vision = await FilesetResolver.forVisionTasks(WASM);

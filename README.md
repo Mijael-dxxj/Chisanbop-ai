@@ -28,3 +28,17 @@ La calidad depende de la iluminación, el encuadre, el fondo y la orientación d
 - `src/fingerAnalyzer.js`, `chisanbop.js`: geometría y reglas matemáticas.
 - `src/renderer.js`, `evaluator.js`: visualización y desafío.
 - `tests/chisanbop.test.js`: pruebas independientes de cámara.
+
+## Uso offline y PWA
+
+El modelo `hand_landmarker.task` y los archivos WASM de MediaPipe están en `public/models/` y `public/mediapipe/wasm/`. El detector no usa CDN durante la ejecución. El Service Worker precarga la interfaz y guarda el modelo/WASM en caché runtime cuando se inicializan por primera vez.
+
+Para preparar el modo offline:
+
+1. Ejecuta `npm run build` y sirve `dist/` desde HTTP en `localhost` o HTTPS.
+2. Abre la aplicación conectado a internet una vez.
+3. Pulsa **Iniciar cámara** y espera a que aparezca `IA y cámara activas`.
+4. Comprueba el indicador `IA local disponible`.
+5. Desconecta internet y recarga la aplicación desde el mismo origen.
+
+La cámara sigue requiriendo un contexto seguro: `localhost` funciona por HTTP; para instalarla en otro equipo o dominio usa HTTPS. Las puntuaciones finales se guardan en `localStorage` bajo `chisanbop.lastChallenge`.

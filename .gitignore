@@ -1,0 +1,29 @@
+﻿# Dependencias
+node_modules/
+
+# Archivos de compilación
+dist/
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+
+# Certificados y claves privadas
+*.pem
+*.key
+*.crt
